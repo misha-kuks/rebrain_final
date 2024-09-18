@@ -1,0 +1,19 @@
+---
+# tasks file for php
+#Ubuntu 22.04 ships with PHP 8.1 as the default PHP version. We are going to use this PHP version for our Joomla website. Run this command below to install PHP 8.1 and its required extensions.
+- name: Install php 8.1
+  ansible.builtin.apt:
+    name:
+      - php-common
+      - php-mysql
+      - php-curl
+      - php-fpm
+      - php-gd
+      - php-imagick
+      - php-intl
+      - php-mbstring
+      - php-xml
+      - php-xmlrpc
+      - php-zip
+    state: present
+    notify: Enable php

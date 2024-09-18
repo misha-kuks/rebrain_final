@@ -1,0 +1,11 @@
+---
+- name: Install joomla and LEMP
+  hosts: all
+  become: true
+  # noqa package-latest
+  roles:
+    - nginx
+    - php
+    - mysql
+    # - initapps
+    # - joomla

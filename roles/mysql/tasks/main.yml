@@ -1,0 +1,44 @@
+---
+# tasks file for mysql
+- name: Install package-latest
+  ansible.builtin.apt:
+    name: mariadb-server
+    state: present
+
+- name: Removes all anonymous user accounts
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: '{{ mysql_root_password}}'
+    name: ''
+    host_all: true
+    state: absent
+
+- name: Make root password
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: '{{ mysql_root_password}}'
+    name: root
+    password: '{{ mysql_root_password}}'
+    host: localhost
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
+
+- name: Create a new database with name 'joomla'
+  community.mysql.mysql_db:
+    login_user: root
+    login_password: '{{ mysql_root_password}}'
+    name: joomla
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
+
+- name: Create user with password, all database privileges and 'WITH GRANT OPTION' in joomla
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: '{{ mysql_root_password}}'
+    state: present
+    name: admin
+    password: '{{ joomla_admin_password }}'
+    priv:
+      'joomla.*': 'ALL,GRANT'
+
+

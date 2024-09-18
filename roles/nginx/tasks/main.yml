@@ -1,0 +1,14 @@
+---
+# tasks file for nginx
+- name: Install package
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: true
+
+- name: Change nginx.conf
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx.conf
+    mode: 0644
+  notify: Restart nginx
