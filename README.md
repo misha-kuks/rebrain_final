@@ -1,0 +1,1 @@
+ansible-playbook -i inventory.yaml site.yml -e password.vault --vault-password-file password.txt

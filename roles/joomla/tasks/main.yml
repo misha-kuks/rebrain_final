@@ -1,2 +1,21 @@
 ---
 # tasks file for joomla
+# - name: Download joomla
+#   ansible.builtin.get_url:
+#     url: "https://downloads.joomla.org/ru/cms/joomla5/5-1-4/Joomla_5-1-4-Stable-Full_Package.zip?format=zip"
+#     dest: "/var/www/sites/joomla/"
+#     mode: '0644'
+#     owner: www-data
+#     group: www-data
+
+- name: Unzip archieve
+  ansible.builtin.unarchive:
+    src: "https://downloads.joomla.org/ru/cms/joomla5/5-1-4/Joomla_5-1-4-Stable-Full_Package.zip?format=zip"
+    dest: "/var/www/sites/joomla/"
+    mode: '0644'
+    owner: www-data
+    group: www-data
+    remote_src: true
+  notify: Reload nginx
+
+

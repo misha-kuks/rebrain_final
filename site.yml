@@ -7,5 +7,5 @@
     - nginx
     - php
     - mysql
-    # - initapps
-    # - joomla
+    - initapps
+    - joomla

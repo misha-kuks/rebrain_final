@@ -1,2 +1,29 @@
 ---
 # tasks file for initapps
+- name: Create joomla.conf 
+  ansible.builtin.template:
+    src: joomla.conf.j2
+    dest: /etc/nginx/sites-available/
+    mode: '0644'
+  notify: Reload nginx
+
+- name: Create symlink
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/joomla.conf
+    dest: /etc/nginx/sites-enabled/joomla.conf
+    mode: '0644'
+    owner: www-data
+    group: www-data
+    state: link
+  notify: Reload nginx
+
+- name: Create folder www
+  ansible.builtin.file:
+    path: /var/www/sites/joomla
+    mode: '0644'
+    owner: www-data
+    group: www-data
+    state: directory
+  notify: Reload nginx
+
+    

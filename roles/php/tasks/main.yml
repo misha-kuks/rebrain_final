@@ -16,4 +16,4 @@
       - php-xmlrpc
       - php-zip
     state: present
-    notify: Enable php
+  notify: Enable php

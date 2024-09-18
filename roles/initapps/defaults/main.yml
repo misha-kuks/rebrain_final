@@ -1,2 +1,4 @@
 ---
 # defaults file for initapps
+nginx_hostname: "{{ ansible_hostname }}"
+nginx_servername: "{{ nginx_hostname }}"
