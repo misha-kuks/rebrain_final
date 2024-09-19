@@ -7,7 +7,11 @@
 #     mode: '0644'
 #     owner: www-data
 #     group: www-data
-
+- name: Install unzip
+  ansible.builtin.apt:
+    name: unzip
+    state: present
+    
 - name: Unzip archieve
   ansible.builtin.unarchive:
     src: "https://downloads.joomla.org/ru/cms/joomla5/5-1-4/Joomla_5-1-4-Stable-Full_Package.zip?format=zip"

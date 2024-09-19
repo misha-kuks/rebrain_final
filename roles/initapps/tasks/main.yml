@@ -3,7 +3,7 @@
 - name: Create joomla.conf
   ansible.builtin.template:
     src: joomla.conf.j2
-    dest: /etc/nginx/sites-available/
+    dest: /etc/nginx/sites-available/joomla.conf
     mode: '0644'
   notify: Reload nginx
 
