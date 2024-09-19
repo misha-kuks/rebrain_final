@@ -1,0 +1,13 @@
+---
+package_name:
+  - php-common
+  - php-mysql
+  - php-curl
+  - php-fpm
+  - php-gd
+  - php-imagick
+  - php-intl
+  - php-mbstring
+  - php-xml
+  - php-xmlrpc
+  - php-zip
