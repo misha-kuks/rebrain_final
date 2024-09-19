@@ -2,6 +2,7 @@
 - name: Install joomla and LEMP
   hosts: all
   become: true
+  vars_files: secret.vault
   # noqa package-latest
   roles:
     - nginx
