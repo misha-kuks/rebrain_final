@@ -31,7 +31,7 @@
   community.mysql.mysql_db:
     login_user: root
     login_password: '{{ mysql_root_password }}'
-    name: joomla
+    name: '{{ mysql_joomla_db_name }}'
     state: present
     login_unix_socket: /run/mysqld/mysqld.sock
 
