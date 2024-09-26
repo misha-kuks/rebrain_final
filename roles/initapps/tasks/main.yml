@@ -1,5 +1,10 @@
 ---
 # tasks file for initapps
+- name: Delete default site nginx
+  ansible.builtin.file:
+    path: /etc/nginx/site-available/default
+    state: absent
+
 - name: Create joomla.conf
   ansible.builtin.template:
     src: joomla.conf.j2

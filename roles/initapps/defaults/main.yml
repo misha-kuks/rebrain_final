@@ -2,3 +2,4 @@
 # defaults file for initapps
 nginx_hostname: "{{ ansible_default_ipv4.address }}"
 nginx_servername: "{{ nginx_hostname }}"
+nginx_site_name: "joomla.local"

@@ -6,9 +6,11 @@
     state: present
     update_cache: true
 
-# - name: Change nginx.conf
-#   ansible.builtin.template:
-#     src: nginx.conf.j2
-#     dest: /etc/nginx.conf
-#     mode: 0644
-#   notify: Restart nginx
+- name: Create folder sites
+  ansible.builtin.file:
+    path: /var/www/sites
+    mode: '0644'
+    owner: www-data
+    group: www-data
+    state: directory
+  notify: Restart nginx
