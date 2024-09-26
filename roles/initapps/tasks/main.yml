@@ -2,7 +2,7 @@
 # tasks file for initapps
 - name: Delete default site nginx
   ansible.builtin.file:
-    path: /etc/nginx/site-available/default
+    path: /etc/nginx/site-enabled/default
     state: absent
 
 - name: Create joomla.conf
@@ -17,8 +17,6 @@
     src: /etc/nginx/sites-available/joomla.conf
     dest: /etc/nginx/sites-enabled/joomla.conf
     mode: '0644'
-    owner: www-data
-    group: www-data
     state: link
   notify: Reload nginx
 

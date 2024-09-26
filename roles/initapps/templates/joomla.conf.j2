@@ -1,14 +1,14 @@
 server {
     listen 80 default_server;
-    server_name {{ {{ nginx_site_name }}\ }};
+    server_name {{ nginx_site_name }};
     root /var/www/sites/joomla;
 
     index index.html index.htm index.php;
 
     charset utf-8;
 
-    access_log /var/log/nginx/{{ {{ nginx_site_name }}\ }}\.access.log;
-    error_log /var/log/nginx/{{ {{ nginx_site_name }}\ }}\.error.log info;
+    access_log /var/log/nginx/{{ nginx_site_name }}.access.log;
+    error_log /var/log/nginx/{{ nginx_site_name }}.error.log info;
 
     location / {
         try_files $uri $uri/ /index.php?$args;
