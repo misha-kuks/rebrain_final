@@ -9,7 +9,7 @@
 - name: Create folder sites
   ansible.builtin.file:
     path: /var/www/sites
-    mode: '0644'
+    mode: '0755'
     owner: www-data
     group: www-data
     state: directory

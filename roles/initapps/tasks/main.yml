@@ -26,7 +26,7 @@
 - name: Create folder www
   ansible.builtin.file:
     path: /var/www/sites/joomla
-    mode: '0644'
+    mode: '0755'
     owner: www-data
     group: www-data
     state: directory
